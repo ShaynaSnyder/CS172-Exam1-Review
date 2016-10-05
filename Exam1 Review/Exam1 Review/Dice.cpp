@@ -1,18 +1,20 @@
 #pragma once
 #include <iomanip>
+#include <ctime>
+#include <cstdlib>
 #include "Dice.h" //including Dice header file
 using namespace std;
 
 
 Dice::Dice(int sides) //constructor sets Dice object using int sides
 {
-
+	srand(time(NULL));
 }
 				// The constructor also calls srand() to initialize the random number generator.
 int Dice::Roll()// Returns the results of a roll (random value between 1 and sides)
 {
 	int rolls;
-	rolls = rand() % 6 + 1;
+	rolls = rand() % sides + 1;
 	return rolls;
 }
 int Dice::GetRolls() // Returns the number of times this dice was rolled since it was created.
